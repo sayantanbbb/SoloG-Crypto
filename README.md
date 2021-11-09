@@ -5,7 +5,7 @@
  
  ## Dataset Explainataion
  
- The dataset has a set of input features like any other named ```X``` and a target value ```target``` namely ```y```  , all this is stored in ```train.csv``` 
+ The dataset has a set of input features like any other named ```X``` and a target value in the```target``` column namely ```y```  , all this is stored in ```train.csv``` 
  
  there is also a ```asset_details.csv``` file in this file information about the asset column each vector[sample] in X is given 
  
