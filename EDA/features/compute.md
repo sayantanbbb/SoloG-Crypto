@@ -15,19 +15,19 @@ Target - 15 minute residualized returns. See the 'Prediction and Evaluation' sec
 
 New stuff :- 
 
-```dy``` :- ``` df['high']-df['low']```
+```dy``` :- ``` df['high']-df['low']``` [ worked : 0 , failed : 1 ,same : 0]
 
-```d``` :- ``` dy/df['Count']```
+```d``` :- ``` dy/df['Count']``` [ worked : 0 , failed : 1 ,same : 0]
 
-```d_log``` :- ```np.log(d)```
+```d_log``` :- ```np.log(d)```[error]
 
 ```lower_shadow``` :- ```np.minimum(df['Close'], df['Open']) - df['Low']```
 
 ```upper_shadow``` :- ```df['High'] - np.maximum(df['Close'], df['Open'])```
 
-```lower_shadow_log``` :- ```np.log(lower_shadow)```
+```lower_shadow_log``` :- ```np.log(lower_shadow)```[error]
 
-```upper_shadow_log``` :- ```np.log(upper_shadow)```
+```upper_shadow_log``` :- ```np.log(upper_shadow)```[error]
 
 ```df_feat["high_div_low"] = df_feat["High"] / df_feat["Low"]```
 
@@ -42,25 +42,25 @@ def log_return(series, periods=1):
 
 ``` abs_one_min_log_return = log_return(df.VWAP,periods=1).abs()   ```
 
-```df['trade']``` :- ```df['Close']-df['Open']```
+```df['trade']``` :- ```df['Close']-df['Open']``` [worked : 1 failed : 0 same:0]
 
-```df['gtrade']``` :- ```df['trade']/df['Count']```
+```df['gtrade']``` :- ```df['trade']/df['Count']```[worked : 1 failed : 0 same:0]
 
-```shadow1``` :- ```trade/Volume```
+```shadow1``` :- ```trade/Volume```  [worked : 1 failed : 0 same:0]
 
-```shadow2``` :- ```upper_shadow/low```
+```shadow2``` :- ```upper_shadow/low```[worked : 0 failed : 0 same:1]
 
-```shadow3``` :- ```upper_shadow/Volume```
+```shadow3``` :- ```upper_shadow/Volume``` [worked : 1 failed : 0 same:0]
 
-```shadow4``` :- ```lower_shadow/high```
+```shadow4``` :- ```lower_shadow/high``` [worked : 0 failed : 0 same:1]
 
-```shadow5``` :- ```lower_shadow/Volume```
+```shadow5``` :- ```lower_shadow/Volume``` [worked : 1 failed : 0 same:0]
 
-```shadow_diff1``` :- ```upper_shadow-lower_shadow```
+```shadow_diff1``` :- ```upper_shadow-lower_shadow``` [worked : 0 failed : 0 same:1]
 
-```shadow_diff2``` :- ```shadow_diff1/count```
+```shadow_diff2``` :- ```shadow_diff1/count``` [worked : 0 failed : 1 same:0]
 
-```shadow_diff3``` :- ```shadow_diff2/Volume```
+```shadow_diff3``` :- ```shadow_diff2/Volume``` [worked : 0 failed : 0 same:1]
 
 
 
