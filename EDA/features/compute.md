@@ -19,9 +19,19 @@ New stuff :-
 
 ```d``` :- ``` dy/df['Count']```
 
+```d_log``` :- ```np.log(d)```
+
 ```lower_shadow``` :- ```np.minimum(df['Close'], df['Open']) - df['Low']```
 
 ```upper_shadow``` :- ```df['High'] - np.maximum(df['Close'], df['Open'])```
+
+```lower_shadow_log``` :- ```np.log(lower_shadow)```
+
+```upper_shadow_log``` :- ```np.log(upper_shadow)```
+
+```df_feat["high_div_low"] = df_feat["High"] / df_feat["Low"]```
+
+
 
 ```python
 def log_return(series, periods=1):
@@ -35,5 +45,22 @@ def log_return(series, periods=1):
 ```df['trade']``` :- ```df['Close']-df['Open']```
 
 ```df['gtrade']``` :- ```df['trade']/df['Count']```
+
+```shadow1``` :- ```trade/Volume```
+
+```shadow2``` :- ```upper_shadow/low```
+
+```shadow3``` :- ```upper_shadow/Volume```
+
+```shadow4``` :- ```lower_shadow/high```
+
+```shadow5``` :- ```lower_shadow/Volume```
+
+```shadow_diff1``` :- ```upper_shadow-lower_shadow```
+
+```shadow_diff2``` :- ```shadow_diff1/count```
+
+```shadow_diff3``` :- ```shadow_diff2/Volume```
+
 
 
