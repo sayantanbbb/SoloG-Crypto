@@ -25,9 +25,9 @@ New stuff :-
 
 ```upper_shadow``` :- ```df['High'] - np.maximum(df['Close'], df['Open'])```
 
-```lower_shadow_log``` :- ```np.log(lower_shadow)```[error]
+```lower_shadow_log``` :- ```np.log(lower_shadow)```[same]
 
-```upper_shadow_log``` :- ```np.log(upper_shadow)```[error]
+```upper_shadow_log``` :- ```np.log(upper_shadow)```[same]
 
 ```df_feat["high_div_low"] = df_feat["High"] / df_feat["Low"]```
 
@@ -62,5 +62,19 @@ def log_return(series, periods=1):
 
 ```shadow_diff3``` :- ```shadow_diff2/Volume``` [worked : 0 failed : 0 same:1]
 
+```python
+ df_feat['diff1']=df_feat['Volume']-df_feat['Count']
+    
+    df_feat['mean1']=(df_feat['shadow5']+df_feat['shadow3'])/2
+    
+    df_feat['mean2']=(df_feat['shadow1']+df_feat['Volume'])/2
+    
+    df_feat['mean3']=(df_feat['trade']+df_feat['gtrade'])/2
+    
+    df_feat['mean4']=(df_feat['diff1']+df_feat['upper_Shadow'])/2
+    
+    df_feat['mean5']=(df_feat['diff1']+df_feat['lower_Shadow'])/2 
+```
+worked
 
-
+Neural Network Features [in progress]
